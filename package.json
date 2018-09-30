@@ -1,0 +1,55 @@
+{
+  "name": "battle-royal",
+  "version": "1.0.0",
+  "description": "battle royal api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satishjhanwer/battle-royal.git"
+  },
+  "keywords": [
+    "Express",
+    "MongoDB",
+    "MLab",
+    "Mongoose",
+    "Node",
+    "JWT",
+    "Heroku"
+  ],
+  "author": "Satish Jhanwer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/satishjhanwer/battle-royal/issues"
+  },
+  "homepage": "https://github.com/satishjhanwer/battle-royal#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "csvtojson": "^2.0.8",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^5.6.1"
+  }
+}
