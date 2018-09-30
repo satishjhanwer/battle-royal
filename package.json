@@ -4,8 +4,11 @@
   "description": "battle royal api",
   "main": "server.js",
   "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build . -s --ignore 'node_modules/**'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node server.js",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/server.js",
     "dev": "nodemon --exec babel-node server.js"
   },
   "repository": {
