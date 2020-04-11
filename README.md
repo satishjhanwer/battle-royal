@@ -13,13 +13,16 @@ Steps to generate JWT token
 
 - URL - `https://battle-royal-api.herokuapp.com/user/` (POST)
 - Payload
-  ```
+
+  ```bash
     email:satish.jhanwer@gmail.com
     password:Satish@123
     name:Satish Jhanwer
   ```
+
 - Returns
-  ```
+
+  ```bash
     {
       "message": "User added successfully!!!"
     }
@@ -29,12 +32,15 @@ Steps to generate JWT token
 
 - URL - `https://battle-royal-api.herokuapp.com/user/login` (POST)
 - Payload
-  ```
+
+  ```bash
     email:satish.jhanwer@gmail.com
     password:Satish@123
   ```
+
 - Returns
-  ```
+
+  ```bash
     {
       "token": <token value>
     }
@@ -46,39 +52,48 @@ Use token which is generated from previous step for further api calls
 
 - URL - `https://battle-royal-api.herokuapp.com/api/list` (GET)
 - Header
-  ```
+
+  ```bash
     x-access-token: <token value>
   ```
+
 - Returns list of distinct battle locations
 
 ### Get Battle Count
 
 - URL - `https://battle-royal-api.herokuapp.com/api/count` (GET)
 - Header
-  ```
+
+  ```bash
     x-access-token: <token value>
   ```
+
 - Returns total no. of battles.
 
 ### Search
 
 - URL - `https://battle-royal-api.herokuapp.com/api/search` (GET)
 - Header
-  ```
+
+  ```bash
     x-access-token: <token value>
   ```
+
 - Eg: `/api/search?king=Robb Stark&location=Golden Tooth&battle_type=pitched battle`
 
 ### Get Stats
 
 - URL - `https://battle-royal-api.herokuapp.com/api/stats` (GET)
 - Header
-  ```
+
+  ```bash
     x-access-token: <token value>
   ```
+
 - Returns Battle stats.
 - Response
-  ```
+
+  ```bash
   {
     "most_active": {
       "attacker_king": "Joffrey/Tommen Baratheon",
