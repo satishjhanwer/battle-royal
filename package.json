@@ -38,7 +38,7 @@
     "csvtojson": "2.0.10",
     "express": "4.17.1",
     "jsonwebtoken": "8.5.1",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "mongoose": "5.9.7",
     "babel-cli": "6.26.0",
     "babel-preset-es2015-node5": "1.2.0",
