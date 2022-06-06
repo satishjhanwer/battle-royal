@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build . -s --ignore 'node_modules/**' --presets=es2015-node5",
+    "build-babel": "babel -d ./build . -s --ignore 'node_modules/**'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/server.js",
+    "start": "npm run build && node --trace-warnings ./build/server.js",
     "lint": "eslint . --fix",
     "dev": "nodemon --exec babel-node server.js"
   },
@@ -32,30 +32,22 @@
   },
   "homepage": "https://github.com/satishjhanwer/battle-royal#readme",
   "dependencies": {
-    "async": "3.2.0",
+    "async": "3.2.3",
     "bcryptjs": "2.4.3",
-    "body-parser": "1.19.0",
+    "body-parser": "1.20.0",
     "csvtojson": "2.0.10",
-    "express": "4.17.1",
+    "express": "4.18.1",
     "jsonwebtoken": "8.5.1",
-    "lodash": "4.17.15",
-    "mongoose": "5.9.7",
-    "babel-cli": "6.26.0",
-    "babel-preset-es2015-node5": "1.2.0",
-    "babel-preset-stage-3": "6.24.1"
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ]
+    "lodash": "4.17.21",
+    "mongoose": "6.3.5"
   },
   "devDependencies": {
-    "babel-core": "6.26.3",
-    "babel-eslint": "10.1.0",
-    "babel-polyfill": "6.26.0",
-    "babel-preset-env": "1.7.0",
+    "@babel/cli": "7.17.10",
+    "@babel/core": "7.18.2",
+    "@babel/eslint-parser": "7.18.2",
+    "@babel/preset-env": "7.18.2",
     "babel-register": "6.26.0",
-    "eslint": "6.8.0"
+    "eslint": "8.17.0"
   },
   "engines": {
     "node": ">=8.0.0"

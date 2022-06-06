@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect(
   DB_URL,
-  { useNewUrlParser: true }
+  { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
 mongoose.connection.on('connected', function() {

@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { pick } from 'lodash';
 import bcrypt from 'bcryptjs';
 import express from 'express';
 import User from '../models/user';
@@ -17,7 +17,7 @@ userRouter
       .catch((err) => res.status(400).send(err));
   })
   .post((req, res, next) => {
-    const body = _.pick(req.body, ['email', 'password', 'name']);
+    const body = pick(req.body, ['email', 'password', 'name']);
     const user = new User(body);
     user.save((err) => {
       if (err) next(err);
