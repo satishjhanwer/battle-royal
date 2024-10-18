@@ -32,23 +32,24 @@
   },
   "homepage": "https://github.com/satishjhanwer/battle-royal#readme",
   "dependencies": {
-    "async": "3.2.4",
+    "async": "3.2.6",
     "bcryptjs": "2.4.3",
-    "body-parser": "1.20.2",
+    "body-parser": "1.20.3",
     "csvtojson": "2.0.10",
-    "express": "4.18.2",
-    "jsonwebtoken": "9.0.0",
+    "express": "4.21.1",
+    "jsonwebtoken": "9.0.2",
     "lodash": "4.17.21",
-    "mongoose": "7.0.3"
+    "mongoose": "8.7.2"
   },
   "devDependencies": {
-    "@babel/cli": "7.21.0",
-    "@babel/core": "7.21.4",
-    "@babel/eslint-parser": "7.21.3",
-    "@babel/preset-env": "7.21.4",
+    "@babel/cli": "7.25.7",
+    "@babel/core": "7.25.8",
+    "@babel/eslint-parser": "7.25.8",
+    "@babel/preset-env": "7.25.8",
     "eslint": "8.38.0"
   },
   "engines": {
     "node": ">=8.0.0"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
