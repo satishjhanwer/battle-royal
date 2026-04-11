@@ -39,7 +39,7 @@
   "dependencies": {
     "async": "3.2.6",
     "bcryptjs": "3.0.2",
-    "body-parser": "2.2.0",
+    "body-parser": "2.2.1",
     "csvtojson": "2.0.13",
     "express": "5.1.0",
     "jsonwebtoken": "9.0.2",
