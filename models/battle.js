@@ -36,10 +36,10 @@ const BattleSchema = new Schema(
 );
 
 // Return data for defender size based on min, max and avg
-BattleSchema.statics.defenderSize = function(callback) {
+BattleSchema.statics.defenderSize = async function() {
   const Battle = this;
   const defender_size = {};
-  Battle.aggregate(
+  const data = await Battle.aggregate(
     [
       {
         $match: {
@@ -55,24 +55,18 @@ BattleSchema.statics.defenderSize = function(callback) {
           battleType: { $addToSet: '$battle_type' }
         }
       }
-    ],
-    (err, data) => {
-      if (err) {
-        return callback(err);
-      }
-      defender_size.min = data[0] ? data[0].min : '';
-      defender_size.max = data[0] ? data[0].max : '';
-      defender_size.avg = data[0] ? data[0].avg : '';
-      const battleType = data[0] ? data[0].battleType : '';
-      callback(null, defender_size, battleType);
-    }
+    ]
   );
+  defender_size.min = data[0] ? data[0].min : '';
+  defender_size.max = data[0] ? data[0].max : '';
+  defender_size.avg = data[0] ? data[0].avg : '';
+  return { defender_size, battle_type: data[0] ? data[0].battleType : '' };
 };
 
 // Return data for most active king data
-BattleSchema.statics.findMostActiveData = function(callback) {
+BattleSchema.statics.findMostActiveData = async function() {
   const Battle = this;
-  Battle.aggregate(
+  const result = await Battle.aggregate(
     [
       {
         $facet: {
@@ -107,14 +101,9 @@ BattleSchema.statics.findMostActiveData = function(callback) {
           ]
         }
       }
-    ],
-    (err, result) => {
-      if (err) {
-        return callback(err);
-      }
-      callback(null, result[0]);
-    }
+    ]
   );
+  return result[0];
 };
 
 export default mongoose.model('battle', BattleSchema, 'battle');

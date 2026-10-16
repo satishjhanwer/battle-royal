@@ -2,12 +2,7 @@ import mongoose from 'mongoose';
 
 const DB_URL = process.env.DB_URL || 'mongodb://localhost:27017/battle-royal';
 
-mongoose.Promise = global.Promise;
-
-mongoose.connect(
-  DB_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect(DB_URL);
 
 mongoose.connection.on('connected', function() {
   console.log('Mongoose default connection is open');
@@ -22,7 +17,7 @@ mongoose.connection.on('disconnected', function() {
 });
 
 process.on('SIGINT', function() {
-  mongoose.connection.close(function() {
+  mongoose.connection.close().then(function() {
     console.log(
       'Mongoose default connection is disconnected due to application termination'
     );

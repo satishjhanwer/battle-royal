@@ -16,25 +16,28 @@ userRouter
       )
       .catch((err) => res.status(400).send(err));
   })
-  .post((req, res, next) => {
+  .post(async (req, res, next) => {
     const body = pick(req.body, ['email', 'password', 'name']);
     const user = new User(body);
-    user.save((err) => {
-      if (err) next(err);
+    try {
+      await user.save();
       res.json({ message: 'User added successfully!!!' });
-    });
-  });
-
-userRouter.route('/login').post((req, res, next) => {
-  User.findOne({ email: req.body.email }, (err, user) => {
-    if (err) next(err);
-    if (bcrypt.compareSync(req.body.password, user.password)) {
-      const token = createJWT({ id: user._id });
-      res.json({ token: token });
-    } else {
-      res.status(500).send('Something got broke, We are working on it.');
+    } catch (err) {
+      next(err);
     }
   });
+
+userRouter.route('/login').post(async (req, res, next) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (bcrypt.compareSync(req.body.password, user.password)) {
+      const token = createJWT({ id: user._id });
+      return res.json({ token: token });
+    }
+    return res.status(500).send('Something got broke, We are working on it.');
+  } catch (err) {
+    return next(err);
+  }
 });
 
 export default userRouter;
